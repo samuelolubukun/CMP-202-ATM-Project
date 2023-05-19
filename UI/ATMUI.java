@@ -118,5 +118,34 @@ public class ATMUI {
         transactionFrame.setVisible(true);
         transactionFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
+    JFrame depositFrame = new JFrame("Deposit");
+    JLabel depositLabel = new JLabel("Enter deposit amount:");
+    JTextField depositTextField = new JTextField();
+    JButton depositAmountBtn = new JButton("Deposit");
 
+    public void drawDepositUI(String accountType) {
+        depositFrame.setLayout(new GridLayout(3, 1));
+        depositFrame.setSize(300, 150);
+
+        depositFrame.add(depositLabel);
+        depositFrame.add(depositTextField);
+        depositFrame.add(depositAmountBtn);
+
+        depositAmountBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    float amount = Float.parseFloat(depositTextField.getText());
+                    JOptionPane.showMessageDialog(null, "Deposited: " + amount);
+                    FileWriterMain.appendData("Account Type: " + accountType + "--Deposit: " + amount);
+
+                } catch (NumberFormatException | IOException ex) {
+                    JOptionPane.showMessageDialog(null, "Invalid input. Please enter a valid number.");
+                }
+            }
+        });
+
+        depositFrame.setVisible(true);
+        depositFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
 }
