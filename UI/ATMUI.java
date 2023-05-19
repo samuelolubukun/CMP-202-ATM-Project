@@ -44,4 +44,45 @@ public class ATMUI {
         frame.setVisible(true);
 
     }
+    JFrame accountTypeFrame = new JFrame("Choose Account Type");
+    JLabel accountTypeLabel = new JLabel("Choose Account Type:");
+    JButton savingsBtn = new JButton("Savings");
+    JButton currentBtn = new JButton("Current");
+
+    public void drawAccountTypeUI() {
+
+        String enteredPIN = pinTextField.getText();
+        pinTextField.setText("");
+
+
+        if (!enteredPIN.equals("5555")) {
+            JOptionPane.showMessageDialog(null, "Incorrect PIN. Please try again.");
+            return;
+        }
+
+        accountTypeFrame.setLayout(new GridLayout(3, 1));
+        accountTypeFrame.setSize(300, 150);
+
+
+        accountTypeFrame.add(accountTypeLabel);
+        accountTypeFrame.add(savingsBtn);
+        accountTypeFrame.add(currentBtn);
+
+        savingsBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) { account = new SavingsAccount(100000);
+                drawTransactionUI("Savings");
+            }
+        });
+
+        currentBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {account = new CurrentAccount(100000);
+                drawTransactionUI("Current");
+            }
+        });
+        accountTypeFrame.setVisible(true);
+        accountTypeFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+
 }
