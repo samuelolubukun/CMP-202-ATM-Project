@@ -84,5 +84,39 @@ public class ATMUI {
         accountTypeFrame.setVisible(true);
         accountTypeFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
+    JFrame transactionFrame = new JFrame("What do you want to do?");
+    JLabel transactionLabel = new JLabel("");
+    JLabel transactionLabelx= new JLabel("What do you want to do");
+    JButton depositBtn = new JButton("Deposit");
+    JButton withdrawBtn = new JButton("Withdraw");
+
+    public void drawTransactionUI(String accountType) {
+        transactionFrame.setLayout(new GridLayout(3, 1));
+        transactionFrame.setSize(300, 150);
+
+
+        transactionFrame.add(transactionLabelx);
+
+        transactionFrame.add(transactionLabel);
+        transactionFrame.add(depositBtn);
+        transactionFrame.add(withdrawBtn);
+
+        depositBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                drawDepositUI(accountType);
+            }
+        });
+
+        withdrawBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                drawWithdrawUI(accountType);
+            }
+        });
+
+        transactionFrame.setVisible(true);
+        transactionFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
 
 }

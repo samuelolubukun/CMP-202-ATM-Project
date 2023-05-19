@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ed45fa0b-b6fd-49a1-9f78-340152061bd3" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Files/FileWriterMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/Files/FileWriterMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UI/ATMUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/ATMUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -25,12 +26,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/Ndubuisi/Documents/ATM Prototype"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="accounts" />

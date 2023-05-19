@@ -35,19 +35,6 @@ public class FileWriterMain {
         fileWriter.close();
     }
 
-    public static void writeData(String data, String fileName) {
-        try {
-            FileWriter writeToFile = new FileWriter(fileName, true);
-
-            writeToFile.write(data);
-            writeToFile.append("");
-            writeToFile.flush();
-            writeToFile.close();
-
-        } catch (IOException ioException) {
-            System.out.println("Can not write to this file");
-        }
-    }
 
     public static void readFromFile() {
         File myFile = new File("transaction.txt");
