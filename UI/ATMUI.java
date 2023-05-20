@@ -148,4 +148,51 @@ public class ATMUI {
         depositFrame.setVisible(true);
         depositFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
+    JFrame withdrawFrame = new JFrame("Withdraw");
+    JLabel withdrawLabel = new JLabel("Enter withdrawal amount:");
+    JTextField withdrawTextField = new JTextField();
+    JButton withdrawAmountBtn = new JButton("Withdraw");
+
+    public void drawWithdrawUI(String accountType) {
+        withdrawFrame.setLayout(new GridLayout(3, 1));
+        withdrawFrame.setSize(300, 150);
+
+        withdrawFrame.add(withdrawLabel);
+        withdrawFrame.add(withdrawTextField);
+        withdrawFrame.add(withdrawAmountBtn);
+
+        withdrawAmountBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    float amount = Float.parseFloat(withdrawTextField.getText());
+                    if (accountType.equals("Savings")) {
+                        float totalWithdrawal = accumulatedWithdrawal + amount;
+                        if (totalWithdrawal > 20000) {
+                            JOptionPane.showMessageDialog(null, "Withdrawal limit exceeded.");
+                            return;
+                        }
+                        accumulatedWithdrawal = totalWithdrawal;
+                    } else if (accountType.equals("Current")) {
+                        if (amount > balance) {
+                            JOptionPane.showMessageDialog(null, "Insufficient funds.");
+                            return;
+                        }
+                    }
+
+                    balance -= amount;
+                    JOptionPane.showMessageDialog(null, "Withdrawn: " + amount);
+                    FileWriterMain.appendData("Account Type: " + accountType + "--Withdrawn: " + amount);
+
+                } catch (NumberFormatException | IOException ex) {
+                    JOptionPane.showMessageDialog(null, "Invalid input. Please enter a valid number.");
+                }
+            }
+        });
+
+        withdrawFrame.setVisible(true);
+        withdrawFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+
 }
+
